@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+#instructions {
+    font-size: 2em;
+}
+
+.difficulty {
+    padding: 10px 55px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.difficulty:hover {
+    cursor: pointer;
+}
+
+#easy {
+    background-color: green;
+}
+
+#medium {
+    background-color: yellow;
+}
+
+#hard {
+    background-color: red;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    font-size: 7em;
+    width: 150px;
+    height: 150px;
+    border: 3px solid black;
+    margin: 5px;
+}
+
+.card:hover {
+    cursor: pointer;
+}
