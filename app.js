@@ -24,20 +24,39 @@ const startGame = (difficulty) => {
 
     colors.sort(() => 0.5 - Math.random());
 
+    let cardOne;
+    let cardTwo;
+
+    const checkPair = (firstCard, secondCard) => {
+
+    };
+
+    const cardFlip = (card) => {
+        if (!cardOne) {
+            cardOne = card;
+            cardOne.innerText = '';
+            cardOne.style.backgroundColor = colors[Object.values(cards).indexOf(cardOne)];
+        } else {
+            cardTwo = card;
+            cardTwo.innerText = '';
+            cardTwo.style.backgroundColor = colors[Object.values(cards).indexOf(cardTwo)];
+            checkPair(cardOne, cardTwo);
+        }
+    };
+
     for (let i = 0; i < numberOfCards; i++) {
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
         card.innerText = '?';
-        // card.addEventListener('click', cardFlip)
         gameContainer.appendChild(card);
     };
 
-    // card.style.backgroundColor = colors[i];
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card) => card.addEventListener('click', () => cardFlip(card)));
+
+
 
 };
-
-
-
 
 difficultySelector.forEach((button) => {
     button.addEventListener('click', () => startGame(button.getAttribute('id')));
