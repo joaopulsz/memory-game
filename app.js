@@ -6,7 +6,7 @@ const colorsMedium = ['red', 'blue', 'yellow', 'green', 'purple', 'brown', 'dark
 const colorsEasy = ['red', 'blue', 'yellow', 'green', 'purple', 'red', 'blue', 'yellow', 'green', 'purple'];
 
 const startGame = (difficulty) => {
-    difficultySelector.forEach((button) => button.disabled = 'true');
+    difficultySelector.forEach((button) => button.disabled = true);
 
     let numberOfCards;
     let colors;
@@ -27,8 +27,23 @@ const startGame = (difficulty) => {
     let cardOne;
     let cardTwo;
 
-    const checkPair = (firstCard, secondCard) => {
+    const checkPair = () => {
+        if (cardOne.style.backgroundColor === cardTwo.style.backgroundColor) {
+            gameContainer.removeChild(cardOne);
+            gameContainer.removeChild(cardTwo);
+        } else {
+            cardOne.style.backgroundColor = '';
+            cardTwo.style.backgroundColor = '';
+            cardOne.innerText = '?';
+            cardTwo.innerText = '?';
+        };
 
+        cardOne = null;
+        cardTwo = null;
+
+        if (gameContainer.hasChildNodes() === false) {
+            difficultySelector.forEach((button) => button.disabled = false);
+        };
     };
 
     const cardFlip = (card) => {
@@ -40,7 +55,7 @@ const startGame = (difficulty) => {
             cardTwo = card;
             cardTwo.innerText = '';
             cardTwo.style.backgroundColor = colors[Object.values(cards).indexOf(cardTwo)];
-            checkPair(cardOne, cardTwo);
+            setTimeout(checkPair, 1000);
         }
     };
 
@@ -53,9 +68,6 @@ const startGame = (difficulty) => {
 
     const cards = document.querySelectorAll('.card');
     cards.forEach((card) => card.addEventListener('click', () => cardFlip(card)));
-
-
-
 };
 
 difficultySelector.forEach((button) => {
