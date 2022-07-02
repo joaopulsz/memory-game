@@ -1,53 +1,67 @@
 body {
-    text-align: center;
-    justify-content: center;
+  text-align: center;
+  justify-content: center;
+  background-color: #ddd;
 }
 
 h1 {
-    font-size: 3.5em;
+  font-size: 3.5em;
 }
 
 #instructions {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 .difficulty {
-    padding: 10px 55px;
-    margin-bottom: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
+  padding: 10px 55px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .difficulty:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #easy {
-    background-color: green;
+  background-color: rgb(74, 181, 118);
+}
+
+#easy:hover {
+  background-color: rgba(74, 181, 118, 0.7);
 }
 
 #medium {
-    background-color: yellow;
+  background-color: rgb(244, 240, 118);
+}
+
+#medium:hover {
+  background-color: rgba(244, 240, 118, 0.7);
 }
 
 #hard {
-    background-color: red;
+  background-color: rgb(244, 109, 111);
+}
+
+#hard:hover {
+  background-color: rgba(244, 109, 111, 0.7);
 }
 
 #container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card {
-    font-size: 7em;
-    width: 150px;
-    height: 150px;
-    border: 3px solid black;
-    margin: 5px;
+  font-size: 7em;
+  width: 150px;
+  height: 150px;
+  border: 3px solid black;
+  margin: 5px;
 }
 
 .card:hover {
-    cursor: pointer;
+  background-color: #ccc;
+  cursor: pointer;
 }
