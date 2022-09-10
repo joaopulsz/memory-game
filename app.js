@@ -1,3 +1,5 @@
+let isSecondCardFlipped = false;
+
 const difficultySelector = document.querySelectorAll('.difficulty');
 const gameContainer = document.querySelector('#container');
 
@@ -41,17 +43,21 @@ const startGame = (difficulty) => {
         cardOne = null;
         cardTwo = null;
 
+        isSecondCardFlipped = false;
+
         if (gameContainer.hasChildNodes() === false) {
             difficultySelector.forEach((button) => button.disabled = false);
+            
         };
     };
 
     const cardFlip = (card) => {
-        if (!cardOne) {
+        if (!cardOne && isSecondCardFlipped === false) {
             cardOne = card;
             cardOne.innerText = '';
             cardOne.style.backgroundColor = colors[Object.values(cards).indexOf(cardOne)];
-        } else {
+        } else if (cardOne && isSecondCardFlipped === false) {
+            isSecondCardFlipped = true;
             cardTwo = card;
             cardTwo.innerText = '';
             cardTwo.style.backgroundColor = colors[Object.values(cards).indexOf(cardTwo)];
